@@ -13,18 +13,35 @@
 				// block complete use of the website and show a complete overlay with update instructions
 				block : function() {
 					console.log('Blocking…');
+					
+					var snippet = 	"<div id='ieNotifier'>" +
+										
+									"</div>";
+					
+					$(snippet)
+						.prependTo('body')
+						.hide()
+						.css({ // temporary css styles until moved into a proper css file
+							'width':'100%',
+							'height':'100%',
+							'background-color':'#cc0000',
+							'position':'absolute',
+							'top':0,
+							'left':0
+						})
+						.fadeIn(800);
+					
 				},
 				// do not interfer with site operation but do show a toolbar-esque warning at the top of the page
 				warning : function() {
 					console.log('Warning…');
 				}
 			};
-			version="7"; // test only
+
+			version="6"; // test only
 			var browser = 'ie'+version;
-			console.log( o[browser] );
-			console.log( $.inArray( o[browser] , run ) );
 			
-			if ( $.inArray( o[browser] , run ) !== -1 ) { run[o[browser]](); }
+			if ( run[o[browser]] !== undefined ) { run[o[browser]](); }
 			
     	};
 
