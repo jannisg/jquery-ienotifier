@@ -14,22 +14,33 @@
 				block : function() {
 					console.log('Blocking…');
 					
-					var snippet = 	"<div id='ieNotifier'>" +
+					var snippet = 	"<div id='_ieNotifier'>" +
 										
 									"</div>";
 					
 					$(snippet)
 						.prependTo('body')
 						.hide()
-						.css({ // temporary css styles until moved into a proper css file
-							'width':'100%',
-							'height':'100%',
-							'background-color':'#cc0000',
-							'position':'absolute',
-							'top':0,
-							'left':0
-						})
-						.fadeIn(800);
+						.fadeIn(400, _reveal );
+					
+					function _reveal() {
+						var display =	"<div id='_notice'>" +
+											"<h1> You're browser is outdated. Please choose one of the options below and update. </h1>" +
+											"<ul id='_browserChoices'>" +
+												"<li> <a href='#'>Mozilla Firefox</a> </li>" +
+												"<li> <a href='#'>Google Chrome</a> </li>" +
+												"<li> <a href='#'>Apple Safari</a> </li>" +
+												"<li> <a href='#'>Opera</a> </li>" +
+												"<li> <a href='#'>Microsort Internet Explorer 8</a> </li>" +
+											"</ul>" +
+										"</div>";
+						
+						$(display)
+							.prependTo('#_ieNotifier')
+							.hide()
+							.fadeIn(350);
+						
+					}
 					
 				},
 				// do not interfer with site operation but do show a toolbar-esque warning at the top of the page
