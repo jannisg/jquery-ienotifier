@@ -38,7 +38,7 @@
 						$(display)
 							.prependTo('#_ieNotifier')
 							.hide()
-							.fadeIn(350);
+							.fadeIn(250);
 						
 					}
 					
@@ -46,10 +46,34 @@
 				// do not interfer with site operation but do show a toolbar-esque warning at the top of the page
 				warning : function() {
 					console.log('Warning…');
+
+					var snippet = 	"<div id='_ieNotifierBar'>" +
+										"<div id='_notice'>" +
+											"<h1> You're browser is severly outdated. Please click here to update your browser and increase your security online. </h1>" +
+											// "<ul id='_browserChoices'>" +
+											// 	"<li> <a href='#'>Mozilla Firefox</a> </li>" +
+											// 	"<li> <a href='#'>Google Chrome</a> </li>" +
+											// 	"<li> <a href='#'>Apple Safari</a> </li>" +
+											// 	"<li> <a href='#'>Opera</a> </li>" +
+											// 	"<li> <a href='#'>Microsort Internet Explorer 8</a> </li>" +
+											// "</ul>" +
+										"</div>" +
+									"</div>";
+					
+					$(snippet)
+						.prependTo('body')
+						.hide()
+						.css('top', '-' + $(snippet).height() + 'px' )
+						.show()
+						.animate({
+							'top' : 0
+						} , 200 );
+						
+					
 				}
 			};
 
-			version="6"; // test only
+			version="7"; // test only
 			var browser = 'ie'+version;
 			
 			if ( run[o[browser]] !== undefined ) { run[o[browser]](); }

@@ -15,7 +15,7 @@
 			top:0;
 			left:0
         }
-        #_notice {
+        #_ieNotifier #_notice {
             position: absolute;
             top:50%;
             left:50%;
@@ -34,6 +34,31 @@
             -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25) , 0 1px 0 #fff inset;
             -o-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25) , 0 1px 0 #fff inset;
         }
+        #_ieNotifierBar {
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            overflow: hidden;
+            height: 30px;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFE1;
+            border-bottom: 1px solid #666;
+        }
+        #_ieNotifierBar:hover {
+            background-color: #3399ff;
+            color: #fff;
+        }
+        #_ieNotifierBar #_notice {
+            padding: 5px 10px;
+            height: 20px;
+        }
+        #_ieNotifierBar #_notice h1 {
+            margin:0;
+            font: 11px/20px Verdana, "Trebuchet MS", sans-serif;
+        }
+/*        #_ieNotifierBar #_notice {}*/
     
     </style>
     
